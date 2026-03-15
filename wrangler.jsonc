@@ -1,5 +1,5 @@
 {
-  "name": "ahcl",
+  "name": "dmo",
   "compatibility_date": "2026-02-17",
   "assets": {
     "directory": "./dist"
@@ -11,4 +11,4 @@
       "database_id": "9fabb653-7bda-4f67-a1c0-8dbedf7fd259"
     }
   ]
-}
+
