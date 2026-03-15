@@ -1,10 +1,10 @@
-<h1 align="center">AHCL | Live TV Streaming</h1>
+<h1 align="center">Fliki | Live TV Streaming</h1>
 
 <div align="center">
 
 [![LIVE TV Streaming](https://img.shields.io/badge/Status-Live-brightgreen)](https://mehedi.fun/) [![Version](https://img.shields.io/badge/Version-1.0.0-green)](https://mehedi.fun/) [![License](https://img.shields.io/badge/License-MIT-yellow)](https://mehedi.fun/) [![Live Demo](https://img.shields.io/badge/Live%20Demo-https://ahcl.pages.dev/-blue)](https://ahcl.pages.dev/) 
 
-*AHCL is a fast, secure, and scalable Live TV Streaming Platform application built on React (Vite) and deployed through Cloudflare Pages & Workers. It uses Cloudflare D1 as its database layer and includes a complete admin dashboard for link and system management.*
+*Fliki is a fast, secure, and scalable Live TV Streaming Platform application built on React (Vite) and deployed through Cloudflare Pages & Workers. It uses Cloudflare D1 as its database layer and includes a complete admin dashboard for link and system management.*
 
 *One of the biggest advantages of this project is that it runs entirely on Cloudflare’s free tier. <font color="green">Both Cloudflare Pages and D1 Database offer generous lifetime free usage</font>, making this solution extremely cost-effective for personal projects, startups, and production-ready deployments without any hosting expenses.*
 
