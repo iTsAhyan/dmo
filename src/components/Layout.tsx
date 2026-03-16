@@ -32,7 +32,7 @@ const Navbar = () => {
           <div className="w-9 h-9 rounded-lg bg-hero-gradient flex items-center justify-center">
             <Tv className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="text-foreground">AHCL</span>
+          <span className="text-foreground">Fliki</span>
         </Link>
 
         {/* Desktop */}
@@ -90,10 +90,10 @@ const Footer = () => (
             <div className="w-8 h-8 rounded-lg bg-hero-gradient flex items-center justify-center">
               <Tv className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="text-foreground">AHCL</span>
+            <span className="text-foreground">Fliki</span>
           </Link>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Your gateway to live television from around the world. Stream thousands of channels for free.
+            Your destination to live televisions channel from around the world. Stream thousands of channels for free.
           </p>
         </div>
         <div>
@@ -122,7 +122,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="border-t border-border mt-8 pt-6 text-center">
-        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} AHCL. All rights reserved.</p>
+        <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Fliki. All rights reserved.</p> <p>Made with ♥️ by Md. Abdullah</p>
       </div>
     </div>
   </footer>
