@@ -6,53 +6,47 @@
 
 @layer base {
   :root {
-    /* Pure & Fresh Green Theme */
     --background: 0 0% 100%;
     --foreground: 220 20% 10%;
-
-    --primary: 142 76% 36%; /* Vibrant Emerald */
+    --primary: 142 76% 36%;
     --primary-foreground: 0 0% 100%;
-
     --secondary: 142 40% 96%;
     --secondary-foreground: 142 80% 15%;
-
     --muted: 210 20% 96%;
     --muted-foreground: 215 15% 40%;
-
     --border: 214 20% 92%;
     --radius: 1.25rem;
-
+    /* ডাইরেক্ট ভেরিয়েবল হিসেবে গ্রেডিয়েন্টটি রাখা হলো */
     --hero-gradient: linear-gradient(135deg, #059669 0%, #10b981 100%);
   }
 
-  /* Dark Mode support (Optional but recommended for Premium feel) */
-  .dark {
-    --background: 220 30% 4%;
-    --foreground: 0 0% 98%;
-    --border: 220 20% 15%;
-    --secondary: 220 20% 10%;
-  }
-}
-
-@layer base {
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/30;
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
   
   h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
     @apply tracking-tight;
   }
 }
 
 @layer utilities {
-  .bg-grid-pattern {
-    background-image: radial-gradient(circle at 2px 2px, hsl(var(--primary) / 0.05) 1px, transparent 0);
-    background-size: 32px 32px;
+  /* এরর এড়াতে এখানে সরাসরি CSS প্রপার্টি ব্যবহার করা হয়েছে */
+  .bg-hero-gradient {
+    background: var(--hero-gradient);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-hero-gradient font-black;
+    background: var(--hero-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle at 2px 2px, hsl(var(--primary) / 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
   }
 
   .card-elevated {
@@ -64,9 +58,16 @@
     @apply -translate-y-3;
     box-shadow: 0 20px 40px -15px rgba(5, 150, 105, 0.15);
   }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
 }
 
-/* Animations */
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -76,11 +77,3 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-.animate-slide-up {
-  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
-  }
