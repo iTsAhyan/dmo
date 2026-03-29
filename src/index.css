@@ -2,112 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 150 10% 10%;
+    /* Pure & Fresh Green Theme */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 150 10% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 150 10% 10%;
-
-    --primary: 142 64% 38%;
+    --primary: 142 76% 36%; /* Vibrant Emerald */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 142 30% 94%;
-    --secondary-foreground: 142 64% 25%;
+    --secondary: 142 40% 96%;
+    --secondary-foreground: 142 80% 15%;
 
-    --muted: 140 20% 96%;
-    --muted-foreground: 150 5% 45%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 40%;
 
-    --accent: 142 45% 90%;
-    --accent-foreground: 142 64% 25%;
+    --border: 214 20% 92%;
+    --radius: 1.25rem;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --hero-gradient: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  }
 
-    --border: 140 15% 90%;
-    --input: 140 15% 90%;
-    --ring: 142 64% 38%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 142 30% 97%;
-    --sidebar-foreground: 150 10% 20%;
-    --sidebar-primary: 142 64% 38%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 142 30% 94%;
-    --sidebar-accent-foreground: 142 64% 25%;
-    --sidebar-border: 140 15% 90%;
-    --sidebar-ring: 142 64% 38%;
-
-    /* Custom tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(142 64% 38%), hsl(160 60% 45%));
-    --card-shadow: 0 2px 12px hsl(142 30% 50% / 0.08);
-    --card-shadow-hover: 0 8px 30px hsl(142 30% 50% / 0.15);
-    --pattern-color: hsl(142 30% 50% / 0.05);
-    --surface-elevated: 0 0% 100%;
-    --success: 142 70% 45%;
-    --success-foreground: 0 0% 100%;
+  /* Dark Mode support (Optional but recommended for Premium feel) */
+  .dark {
+    --background: 220 30% 4%;
+    --foreground: 0 0% 98%;
+    --border: 220 20% 15%;
+    --secondary: 220 20% 10%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  
+  h1, h2, h3 {
+    @apply tracking-tight;
   }
 }
 
 @layer utilities {
   .bg-grid-pattern {
-    background-image:
-      linear-gradient(hsl(142 30% 50% / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(142 30% 50% / 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  .bg-hero-gradient {
-    background: var(--hero-gradient);
+    background-image: radial-gradient(circle at 2px 2px, hsl(var(--primary) / 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
   }
 
   .text-gradient {
-    background: var(--hero-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply bg-clip-text text-transparent bg-hero-gradient font-black;
   }
 
   .card-elevated {
-    background: hsl(var(--surface-elevated));
-    box-shadow: var(--card-shadow);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    @apply bg-white/80 backdrop-blur-xl transition-all duration-500;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
   }
 
   .card-elevated:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-2px);
+    @apply -translate-y-3;
+    box-shadow: 0 20px 40px -15px rgba(5, 150, 105, 0.15);
   }
+}
 
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 @keyframes fadeIn {
@@ -115,7 +77,10 @@
   to { opacity: 1; }
 }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.animate-slide-up {
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+  }
